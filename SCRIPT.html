@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="scriptloop.css">
+    <script src="SL.js"></script>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ScriptLoop</h1>
+            <p>Free Online Code Snippet Library. Discover, share, and search useful HTML, CSS, and JS snippets.</p>
+            <form class="search-bar" autocomplete="off" onsubmit="event.preventDefault();">
+                <input type="text" placeholder="Search snippets (e.g. navbar, button, animation)">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="categories">
+        <div class="category-card">
+            <h3><span class="icon">🔗</span> HTML Elements</h3>
+            <p>Reusable HTML structures like navbars, forms, cards, and more.</p>
+            <div class="examples">Examples: Navbar, Modal, Card, Table</div>
+            <!--button 
+                style="margin-top:12px;display:inline-block;cursor:pointer;" 
+                onclick="window.parent.location.href='html-elements.html';">
+                Open in Parent
+            </button-->
+        </div>
+        <div class="category-card">
+            <h3><span class="icon">🎨</span> CSS Tricks</h3>
+            <p>Animations, gradients, layouts, and creative styling snippets.</p>
+            <div class="examples">Examples: Button Hover, Flex Layout, Gradient Border</div>
+            <!--button 
+                style="margin-top:12px;display:inline-block;cursor:pointer;" 
+                onclick="window.parent.location.href='css-tricks.html';">
+                Open in Parent
+            </button-->
+        </div>
+        <div class="category-card">
+            <h3><span class="icon">⚡</span> JavaScript Utilities</h3>
+            <p>Useful JS functions, effects, and interactive components.</p>
+            <div class="examples">Examples: Copy to Clipboard, Accordion, Tabs</div>
+            <!--button 
+                style="margin-top:12px;display:inline-block;cursor:pointer;" 
+                onclick="window.parent.location.href='javascript-utilities.html';">
+                Open in Parent
+            </button-->
+        </div>
+        <div class="category-card">
+            <h3><span class="icon">🧩</span> Frameworks</h3>
+            <p>Snippets for React, Vue, Tailwind, Bootstrap, and more.</p>
+            <div class="examples">Examples: React Button, Vue Modal, Tailwind Card</div>
+            <!--button 
+                style="margin-top:12px;display:inline-block;" 
+                onclick="window.parent.location.href='frameworks.html';">
+                Open in Parent
+            </button-->
+        </div>
+    </section>
+    
+    <section class="featured-snippets-container">
+        <!-- Responsive Navbar -->
+        <div class="featured-snippet">
+            <h2>✨ Featured Snippet: Responsive Navbar</h2>
+            <pre id="featured-code-navbar">&lt;nav class="navbar"&gt;
+  &lt;a href="#" class="logo"&gt;Brand&lt;/a&gt;
+  &lt;input type="checkbox" id="menu-toggle"&gt;
+  &lt;label for="menu-toggle" class="menu-icon"&gt;&#9776;&lt;/label&gt;
+  &lt;ul class="menu"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+&lt;style&gt;
+.navbar { display: flex; align-items: center; background: #4f8cff; padding: 10px 20px; }
+.logo { color: #fff; font-weight: bold; font-size: 1.2rem; text-decoration: none; margin-right: auto; }
+.menu { list-style: none; display: flex; margin: 0; padding: 0; }
+.menu li { margin-left: 18px; }
+.menu a { color: #fff; text-decoration: none; font-size: 1rem; }
+.menu-icon { display: none; font-size: 1.6rem; color: #fff; cursor: pointer; }
+#menu-toggle { display: none; }
+@media (max-width: 600px) {
+  .menu { display: none; flex-direction: column; background: #4f8cff; position: absolute; top: 48px; left: 0; width: 100%; }
+  #menu-toggle:checked + .menu-icon + .menu { display: flex; }
+  .menu-icon { display: block; }
+}
+&lt;/style&gt;
+            </pre>
+            <div class="snippet-actions">
+                <button onclick="copyFeaturedSnippet('featured-code-navbar')">Copy Code</button>
+            </div>
+        </div>
+        <!-- Replace the selected snippet section with the following: -->
+        <div class="see-more-snippets">
+            <button class="see-more-btn" id="see-more-btn" style="margin-bottom:16px;display:inline-block;" onclick="toggleSeeMore()">See More</button>
+            <div id="see-more-content" style="display:none;">
+                <div class="featured-snippet">
+                    <h2>✨ Featured Snippet: Animated Gradient Button</h2>
+                    <pre id="featured-code-gradient-btn">&lt;button class="gradient-btn"&gt;Click Me!&lt;/button&gt;
+&lt;style&gt;
+.gradient-btn {
+  padding: 14px 36px;
+  font-size: 1.1rem;
+  color: #fff;
+  background: linear-gradient(90deg, #4f8cff, #6ee7b7, #f472b6);
+  background-size: 200% 200%;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-position 0.4s;
+  box-shadow: 0 2px 8px rgba(79,140,255,0.13);
+}
+.gradient-btn:hover {
+  background-position: right center;
+}
+&lt;/style&gt;
+                    </pre>
+                    <div class="snippet-actions">
+                        <button onclick="copyFeaturedSnippet('featured-code-gradient-btn')">Copy Code</button>
+                    </div>
+                </div>
+                <!-- Copy to Clipboard Utility -->
+                <div class="featured-snippet">
+                    <h2>✨ Featured Snippet: Copy to Clipboard Utility</h2>
+                    <pre id="featured-code-copy-clipboard">&lt;button onclick="copyText()"&gt;Copy Text&lt;/button&gt;
+&lt;input id="myInput" value="Hello, ScriptLoop!" style="margin-left:10px;"&gt;
+&lt;script&gt;
+function copyText() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  document.execCommand("copy");
+  alert("Copied: " + copyText.value);
+}
+&lt;/script&gt;
+                    </pre>
+                    <div class="snippet-actions">
+                        <button onclick="copyFeaturedSnippet('featured-code-copy-clipboard')">Copy Code</button>
+                    </div>
+                </div>
+                <!-- Simple Modal Dialog -->
+                <div class="featured-snippet">
+                    <h2>✨ Featured Snippet: Simple Modal Dialog</h2>
+                    <pre id="featured-code-modal">&lt;button onclick="document.getElementById('modal').style.display='block'"&gt;Open Modal&lt;/button&gt;
+&lt;div id="modal" class="modal"&gt;
+  &lt;div class="modal-content"&gt;
+    &lt;span class="close" onclick="document.getElementById('modal').style.display='none'"&gt;&amp;times;&lt;/span&gt;
+    &lt;p&gt;This is a simple modal dialog!&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.modal { display: none; position: fixed; z-index: 10; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3);}
+.modal-content { background: #fff; margin: 10% auto; padding: 24px 32px; border-radius: 8px; width: 90%; max-width: 400px; position: relative;}
+.close { position: absolute; right: 18px; top: 12px; font-size: 1.5rem; cursor: pointer; color: #4f8cff;}
+&lt;/style&gt;
+                    </pre>
+                    <div class="snippet-actions">
+                        <button onclick="copyFeaturedSnippet('featured-code-modal')">Copy Code</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--script>
+        function toggleSeeMore() {
+            var content = document.getElementById('see-more-content');
+            var btn = document.getElementById('see-more-btn');
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                btn.textContent = 'See Less';
+            } else {
+                content.style.display = 'none';
+                btn.textContent = 'See More';
+            }
+        }
+        </script-->
+    </section>
+
+    <div class="cta">
+        <button onclick="alert('Feature coming soon!')">Contribute a Snippet</button>
+        <button class="copy" onclick="copyFeaturedSnippet('featured-code-navbar')">Copy Featured Snippet</button>
+    </div>
+
+    <section class="about">
+        <h2>About ScriptLoop</h2>
+        <p>
+            ScriptLoop is a free, community-driven library for sharing and discovering code snippets. Whether you're a beginner or a pro, you can find, use, and contribute snippets for HTML, CSS, and JavaScript.
+        </p>
+        <ul>
+            <li>🔍 Search for ready-to-use code snippets by keyword or category.</li>
+            <li>📋 Copy snippets instantly to your clipboard.</li>
+            <li>💡 Contribute your own snippets and help others.</li>
+            <li>🌐 Explore snippets for popular frameworks and libraries.</li>
+        </ul>
+    </section>
+
+    <footer>
+        &copy; 2024 ScriptLoop. Made with &lt;/&gt; for the web community.
+    </footer>
+</body>
+</html>
